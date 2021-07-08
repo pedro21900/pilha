@@ -20,8 +20,8 @@ public class PilhaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       /* List<Meal> meals = themealService.searchMealByName("a");
-        System.out.println(meals);*/
+       List<Meal> meals = themealService.searchMealByName("a");
+        System.out.println(meals);
 
     }
 }
