@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import topi.pilha.model.Meal;
 import topi.pilha.services.ThemealService;
 
-import java.util.List;
 
 @SpringBootApplication
 public class PilhaApplication implements CommandLineRunner {
@@ -20,8 +18,8 @@ public class PilhaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       List<Meal> meals = themealService.searchMealByName("a");
-        System.out.println(meals);
+    /*   List<Meal> meals = themealService.searchMealByName("a");
+        System.out.println(meals);*/
 
     }
 }

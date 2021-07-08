@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRUD com Bootstrap 3</title>
+    <link th:rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{assets/css/style.css}">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -36,11 +36,19 @@
 
             <div class="input-group h2">
                 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
-                <span class="input-group-btn">
-					<button class="btn btn-primary" type="submit">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</span>
+                <span class=" input-group-btn">
+                <button class="btn btn-primary" type="submit"
+                        onclick="window.location.href='/index?name='+getInputValue()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+                     <script>
+                        function getInputValue(){
+                            // Selecting the input element and get its value
+                            var inputVal = document.getElementById("search").value;
+                            return inputVal;
+                        }
+                    </script>
+                </span>
             </div>
 
         </div>
@@ -62,113 +70,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1001</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
+                <tr th:each="meal : ${meals}">
+                    <td th:text="${meal.strMeal}"></td>
+                    <td th:text="${meal.strCategory}"></td>
+                    <td th:text="${meal.strTags}"></td>
+                    <td th:text="${meal.strInstructions}"></td>
                     <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1002</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1003</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1004</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1005</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1006</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1007</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1008</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1009</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1010</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing</td>
-                    <td>Jes</td>
-                    <td>01/01/2015</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
+                        <a class="btn btn-success btn-xs" th:href="@{/view(id=${meal.idMeal})}"> To view</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
     </div> <!-- /#list -->
-
-    <div id="bottom" class="row">
-        <div class="col-md-12">
-            <ul class="pagination">
-                <li class="disabled"><a>&lt; Anterior</a></li>
-                <li class="disabled"><a>1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
-            </ul><!-- /.pagination -->
-        </div>
-    </div> <!-- /#bottom -->
 </div> <!-- /#main -->
 
 <!-- Modal -->
@@ -183,7 +97,7 @@
     </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script th:href="@{js/jquery.min.js}"></script>
+<script th:href="@{js/bootstrap.min.js}"></script>
 </body>
 </html>

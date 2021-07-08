@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pilha
+spec:
+  selector:
+    matchLabels:
+      app: pilha
+  template:
+    metadata:
+      labels:
+        app: pilha
+    spec:
+      containers:
+        - name: validador
+          image: reg.tre-pa.jus.br/sds/apps/validador:0.0.1
+          ports:
+            - name: http
+              containerPort: 8080
+      imagePullSecrets:
+        - name: harbor-sds
