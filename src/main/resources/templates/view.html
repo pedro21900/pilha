@@ -7,6 +7,7 @@
     <title>Receitas</title>
     <link th:rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
     <link th:rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link th:rel="icon" type="imagem/ico" th:href="@{assets/imagens/ico.ico}"/>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -68,7 +69,7 @@
     </div>
     <hr/>
 </div>
-<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+<script th:href="@{https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js}"></script>
 <script th:href="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js}"></script>
 <script th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
 </body>
