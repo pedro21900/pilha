@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" th:href="@{/index}">Pilha</a>
+            <a class="navbar-brand" th:href="@{/index}">Home</a>
         </div>
     </div>
 </nav>
@@ -32,7 +32,7 @@
             <p><strong>Imagem Id:
                 <th:block th:text="${mealItem.idMeal}">[mealItem.idMeal]</th:block>
             </strong></p>
-            <img class="col-sm-12" th:src="${mealItem.strMealThumb}">
+            <img class="img-fluid" width="80%" th:src="${mealItem.strMealThumb}">
             <p class="col-sm-1"></p>
         </div>
         <div class="col-md">

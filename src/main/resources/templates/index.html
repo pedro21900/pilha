@@ -14,10 +14,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Pilha</a>
         </div>
@@ -34,11 +34,16 @@
             <div class="input-group h2">
                 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
                 <span class=" input-group-btn">
-                <button class="btn btn-primary" type="submit"
+                <button class="btn btn-primary" type="submit" id="btSearch"
                         onclick="window.location.href='/index?name='+getInputValue()">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
                      <script>
+                         document.addEventListener('keydown', function(e) {
+                         if(e.key == "Enter"){
+                            document.getElementById("btSearch").click();
+                                }
+                                });
                         function getInputValue(){
                             // Selecting the input element and get its value
                             var inputVal = document.getElementById("search").value;
@@ -59,19 +64,15 @@
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Nome</th>
                     <th>Categoria</th>
-                    <th>Área</th>
                     <th class="actions">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="meal : ${meals}">
-                    <td th:text="${meal.idMeal}"></td>
                     <td th:text="${meal.strMeal}"></td>
                     <td th:text="${meal.strCategory}"></td>
-                    <td th:text="${meal.strTags}"></td>
                     <td class="actions">
                         <a class="btn btn-success btn-xs" th:href="@{/view(id=${meal.idMeal})}"> To view</a>
                     </td>
