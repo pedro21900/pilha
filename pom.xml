@@ -62,7 +62,22 @@
             <artifactId>webjars-locator</artifactId>
             <version>0.41</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-webapp-maven-plugin</artifactId>
+            <version>1.14.0</version>
+            <type>maven-plugin</type>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

@@ -14,8 +14,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -33,7 +31,6 @@
             <h2>Itens</h2>
         </div>
         <div class="col-sm-6">
-
             <div class="input-group h2">
                 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
                 <span class=" input-group-btn">
@@ -62,19 +59,19 @@
             <table class="table table-striped" cellspacing="0" cellpadding="0">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nome</th>
                     <th>Categoria</th>
                     <th>Área</th>
-                    <th>Instruções de cozimento</th>
                     <th class="actions">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="meal : ${meals}">
+                    <td th:text="${meal.idMeal}"></td>
                     <td th:text="${meal.strMeal}"></td>
                     <td th:text="${meal.strCategory}"></td>
                     <td th:text="${meal.strTags}"></td>
-                    <td th:text="${meal.strInstructions}"></td>
                     <td class="actions">
                         <a class="btn btn-success btn-xs" th:href="@{/view(id=${meal.idMeal})}"> To view</a>
                     </td>
@@ -96,7 +93,7 @@
         </div>
     </div>
 </div>
-
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
 <script th:href="@{js/jquery.min.js}"></script>
 <script th:href="@{js/bootstrap.min.js}"></script>
 </body>

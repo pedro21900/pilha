@@ -12,12 +12,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" th:href="@{/index}">Pilha</a>
         </div>
@@ -27,27 +25,35 @@
 <div id="main" class="container-fluid">
     <h3 class="page-header">Receita</h3>
     <div class="row">
-        <div class="col-sm">
-            <p><strong></strong></p>
+        <div class="col-md">
+            <p><strong>    </strong></p>
         </div>
-        <div class="col-sm-5">
+        <div class="col-md-4">
             <p><strong>Imagem Id:
                 <th:block th:text="${mealItem.idMeal}">[mealItem.idMeal]</th:block>
             </strong></p>
-            </strong></p>
-            <img th:src="${mealItem.strMealThumb}">
+            <img class="col-sm-12" th:src="${mealItem.strMealThumb}">
+            <p class="col-sm-1"></p>
+        </div>
+        <div class="col-md">
+            <p><strong>    </strong></p>
         </div>
         <div class="col-md-5">
+            <div class="col-md">
+                <p><strong></strong></p>
+            </div>
             <p><strong>Instruções de cozimento</strong></p>
             <p th:text="${mealItem.strInstructions}"></p>
             <div class="row">
-                <div class="col-md-3">
-                    <p><strong>Área</strong></p>
-                    <p th:text="${mealItem.strTags}"></p>
+                <div class="col-md-4">
+                    <p><strong>Área</strong>
+                        <th:block th:text="${mealItem.strTags}">[mealItem.strTags]</th:block>
+                    </p>
                 </div>
-                <div class="col-md-3">
-                    <p><strong>Categoria</strong></p>
-                    <p th:text="${mealItem.strCategory}"></p>
+                <div class="col-md-4">
+                    <p><strong>Categoria</strong>
+                        <th:block th:text="${mealItem.strCategory}">[mealItem.strCategory]</th:block>
+                    </p>
                 </div>
             </div>
         </div>
@@ -60,6 +66,7 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
 <script th:href="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js}"></script>
 <script th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
 </body>
