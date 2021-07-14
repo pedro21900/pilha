@@ -6,7 +6,7 @@ WORKDIR ./home/pilha
 
 COPY / .
 
-RUN mvn dependency:tree && mvn clean package
+RUN mvn dependency:tree && mvn clean install
 
 FROM adoptopenjdk/openjdk11:alpine-jre
 
