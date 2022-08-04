@@ -12,6 +12,8 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 
 COPY --from=pilha /home/pilha/target/*.jar Pilha-0.0.1-SNAPSHOT.jar
 
+EXPOSE 8080
+
 CMD ["java", "-jar", "Pilha-0.0.1-SNAPSHOT.jar"]
 
 HEALTHCHECK --interval=25s --timeout=3s --retries=2 CMD wget --spider http://localhost:8080/
